@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evergreen Painting, LLC | Residential Painting in Manheim, PA</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: {
+                            50: '#f4f9f5',
+                            100: '#d8f3dc',
+                            200: '#b7e4c7',
+                            300: '#95d5b2',
+                            400: '#74c69d',
+                            500: '#52b788',
+                            600: '#40916c',
+                            700: '#2d6a4f',
+                            800: '#1b4332',
+                            900: '#081c15',
+                        },
+                        pine: '#1B4332',
+                        emeraldAccent: '#52B788',
+                        mintBg: '#F4F9F5',
+                        sageBorder: '#D8F3DC',
+                        darkText: '#1A251E',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1A251E;
+        }
+        /* Custom image slider comparison style */
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .before-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 50%;
+            overflow: hidden;
+        }
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: #FFFFFF;
+            cursor: ew-resize;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="bg-[#F4F9F5] text-darkText min-h-screen flex flex-col">
+
+    <!-- Top Announcement / Phone Banner -->
+    <div class="bg-forest-800 text-white py-2 px-4 text-xs sm:text-sm font-medium">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <span class="flex items-center gap-2">
+                <i class="fa-solid fa-location-dot text-emeraldAccent"></i>
+                Serving Manheim, PA & Surrounding Lancaster County
+            </span>
+            <a href="tel:7175550199" class="hover:text-emeraldAccent transition-colors flex items-center gap-1 font-semibold">
+                <i class="fa-solid fa-phone text-xs"></i> (717) 555-0199
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/95 border-b border-forest-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-forest-800 flex items-center justify-center text-emeraldAccent text-xl font-bold shadow-sm">
+                        <i class="fa-solid fa-paint-roller"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight text-forest-800 block leading-none">EVERGREEN</span>
+                        <span class="text-xs font-semibold text-forest-600 tracking-wider uppercase block mt-1">Painting, LLC</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
+                    <a href="#services" class="hover:text-forest-700 transition-colors">Services</a>
+                    <a href="#gallery" class="hover:text-forest-700 transition-colors">Before & After</a>
+                    <a href="#service-area" class="hover:text-forest-700 transition-colors">Service Area</a>
+                    <a href="#contact" class="hover:text-forest-700 transition-colors">Contact Us</a>
+                </div>
+
+                <!-- Right Actions Call CTA -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#quote" class="px-5 py-2.5 text-sm font-bold text-white bg-forest-800 hover:bg-forest-700 rounded-lg shadow-sm hover:shadow transition-all">
+                        Get Free Estimate
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" aria-label="Open Mobile Menu" class="p-2 text-forest-800 hover:bg-forest-50 rounded-lg focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-forest-100 bg-white px-4 pt-2 pb-4 space-y-3">
+            <a href="#services" class="block py-2 text-base font-semibold text-slate-700 hover:text-forest-700">Services</a>
+            <a href="#gallery" class="block py-2 text-base font-semibold text-slate-700 hover:text-forest-700">Before & After</a>
+            <a href="#service-area" class="block py-2 text-base font-semibold text-slate-700 hover:text-forest-700">Service Area</a>
+            <a href="#contact" class="block py-2 text-base font-semibold text-slate-700 hover:text-forest-700">Contact Us</a>
+            <a href="tel:7175550199" class="block w-full text-center px-4 py-3 text-sm font-bold text-forest-800 bg-forest-100 rounded-lg">
+                <i class="fa-solid fa-phone mr-2"></i> Call (717) 555-0199
+            </a>
+            <a href="#quote" class="block w-full text-center px-4 py-3 text-sm font-bold text-white bg-forest-800 rounded-lg shadow-sm">
+                Request Free Quote
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative overflow-hidden py-16 lg:py-28 bg-gradient-to-b from-white via-forest-50 to-[#F4F9F5]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-forest-800 bg-forest-100 rounded-full border border-forest-200">
+                        <i class="fa-solid fa-shield-halved text-forest-600"></i> Licensed & Insured Residential Painters
+                    </span>
+                    
+                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-forest-900 leading-tight">
+                        A Fresh Coat, <span class="text-transparent bg-clip-text bg-gradient-to-r from-forest-800 via-forest-700 to-forest-500">Done Right</span>.
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl text-slate-600 max-w-2xl font-normal leading-relaxed">
+                        Transform your home with professional interior and exterior painting services in Manheim, PA. Top-tier craftsmanship, clean worksites, and lasting finishes.
+                    </p>
+
+                    <div class="pt-2 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                        <a href="tel:7175550199" class="px-8 py-4 text-base font-extrabold text-white bg-forest-800 hover:bg-forest-700 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-phone text-lg"></i>
+                            <span>(717) 555-0199</span>
+                        </a>
+                        <a href="#quote" class="px-8 py-4 text-base font-bold text-forest-800 bg-white hover:bg-forest-50 rounded-xl border border-forest-200 shadow-sm transition-all flex items-center justify-center">
+                            Request Free Quote
+                        </a>
+                    </div>
+
+                    <!-- Highlights Badge Row -->
+                    <div class="pt-6 border-t border-forest-200/60 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <p class="text-xs text-slate-500 font-semibold uppercase">Locally Owned</p>
+                            <p class="text-sm font-bold text-forest-800">Manheim, PA</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-semibold uppercase">Quality Materials</p>
+                            <p class="text-sm font-bold text-forest-800">Premium Paints</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-semibold uppercase">Satisfaction</p>
+                            <p class="text-sm font-bold text-forest-800">100% Guaranteed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Box -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-forest-800 text-white p-8 space-y-6">
+                        <div class="w-12 h-12 bg-emeraldAccent/20 rounded-xl flex items-center justify-center text-emeraldAccent text-2xl">
+                            <i class="fa-solid fa-house-chimney-window"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold">Ready to revitalize your space?</h2>
+                        <p class="text-forest-100 text-sm leading-relaxed">
+                            Evergreen Painting, LLC delivers precise prep work, rich colors, and clean lines on every project across Lancaster County.
+                        </p>
+                        <div class="bg-forest-900/60 p-4 rounded-xl border border-forest-700/50 space-y-3">
+                            <div class="flex items-center gap-3 text-xs font-medium text-forest-200">
+                                <i class="fa-solid fa-check text-emeraldAccent"></i> Free On-Site Estimates
+                            </div>
+                            <div class="flex items-center gap-3 text-xs font-medium text-forest-200">
+                                <i class="fa-solid fa-check text-emeraldAccent"></i> Detailed Wall Preparation
+                            </div>
+                            <div class="flex items-center gap-3 text-xs font-medium text-forest-200">
+                                <i class="fa-solid fa-check text-emeraldAccent"></i> Clean & Timely Execution
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-forest-600 bg-forest-50 px-3 py-1 rounded-full border border-forest-100">Our Expertise</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-forest-900 mt-3">
+                    Professional Residential Services
+                </h2>
+                <p class="mt-4 text-slate-600">
+                    From single rooms to full home exteriors, we bring attention to detail to every surface.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1: Interior Painting -->
+                <div class="bg-forest-50/50 rounded-2xl p-8 border border-forest-100 hover:border-forest-300 hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-forest-800 text-emeraldAccent rounded-xl flex items-center justify-center text-xl mb-6 shadow-sm">
+                            <i class="fa-solid fa-paint-roller"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-forest-900 mb-3">Interior Painting</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Walls, ceilings, trim, baseboards, and doors. Complete surface prep, priming, and flawless coats for a fresh living room, kitchen, or bedroom.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 2: Exterior Painting -->
+                <div class="bg-forest-50/50 rounded-2xl p-8 border border-forest-100 hover:border-forest-300 hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-forest-800 text-emeraldAccent rounded-xl flex items-center justify-center text-xl mb-6 shadow-sm">
+                            <i class="fa-solid fa-brush"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-forest-900 mb-3">Exterior Painting</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Siding, shutters, porches, decks, and trim. Weather-resistant coatings designed to protect your home from Pennsylvania elements year-round.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 3: Cabinet Refinishing -->
+                <div class="bg-forest-50/50 rounded-2xl p-8 border border-forest-100 hover:border-forest-300 hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-forest-800 text-emeraldAccent rounded-xl flex items-center justify-center text-xl mb-6 shadow-sm">
+                            <i class="fa-solid fa-kitchen-set"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-forest-900 mb-3">Cabinet Refinishing</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Upgrade your kitchen or bath without a full replacement. Factory-smooth enamel finishes for cabinets at a fraction of the remodeling cost.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 4: Drywall Repair -->
+                <div class="bg-forest-50/50 rounded-2xl p-8 border border-forest-100 hover:border-forest-300 hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-forest-800 text-emeraldAccent rounded-xl flex items-center justify-center text-xl mb-6 shadow-sm">
+                            <i class="fa-solid fa-trowel-bricks"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-forest-900 mb-3">Drywall Repair</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Hole patching, water damage repair, crack fixes, and texture matching. We make your walls perfectly smooth before applying the final finish.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Showcase Gallery -->
+    <section id="gallery" class="py-20 bg-[#F4F9F5] border-y border-forest-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-forest-600 bg-white px-3 py-1 rounded-full border border-forest-200">Our Results</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-forest-900 mt-3">
+                    Before & After Transformation Gallery
+                </h2>
+                <p class="mt-4 text-slate-600">
+                    Slide back and forth to see the difference a professional finish makes.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Comparison Item 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-forest-100">
+                    <div class="slider-container h-64 sm:h-80 w-full relative select-none" id="slider-1">
+                        <!-- After Image (Background) -->
+                        <div class="absolute inset-0 bg-forest-800 flex items-center justify-center text-white text-center p-6">
+                            <div>
+                                <span class="bg-emeraldAccent text-forest-900 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider block w-max mx-auto mb-2">AFTER</span>
+                                <h4 class="text-xl font-bold">Refreshed Modern Interior</h4>
+                                <p class="text-xs text-forest-200 mt-1">Clean Forest Green & Warm Cream Accents</p>
+                            </div>
+                        </div>
+                        <!-- Before Image (Clipped Overlay) -->
+                        <div class="before-image bg-slate-400 flex items-center justify-center text-white text-center p-6" id="before-1">
+                            <div>
+                                <span class="bg-slate-800 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider block w-max mx-auto mb-2">BEFORE</span>
+                                <h4 class="text-xl font-bold">Faded & Worn Wall Finish</h4>
+                                <p class="text-xs text-slate-200 mt-1">Scuffed Surfaces & Dated Colors</p>
+                            </div>
+                        </div>
+                        <!-- Slider Handle -->
+                        <div class="slider-handle" id="handle-1">
+                            <div class="w-8 h-8 rounded-full bg-white text-forest-800 flex items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg text-xs font-bold">
+                                <i class="fa-solid fa-code-compare"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-forest-900 text-lg">Living Room & Trim Repaint</h4>
+                        <p class="text-sm text-slate-600 mt-1">Full prep work, hole patching, and two coats of low-VOC premium eggshell paint.</p>
+                    </div>
+                </div>
+
+                <!-- Comparison Item 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-forest-100">
+                    <div class="slider-container h-64 sm:h-80 w-full relative select-none" id="slider-2">
+                        <!-- After Image -->
+                        <div class="absolute inset-0 bg-forest-700 flex items-center justify-center text-white text-center p-6">
+                            <div>
+                                <span class="bg-emeraldAccent text-forest-900 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider block w-max mx-auto mb-2">AFTER</span>
+                                <h4 class="text-xl font-bold">Factory-Smooth Kitchen Cabinets</h4>
+                                <p class="text-xs text-forest-100 mt-1">Satin Enamel Refinishing</p>
+                            </div>
+                        </div>
+                        <!-- Before Image -->
+                        <div class="before-image bg-stone-500 flex items-center justify-center text-white text-center p-6" id="before-2">
+                            <div>
+                                <span class="bg-slate-800 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider block w-max mx-auto mb-2">BEFORE</span>
+                                <h4 class="text-xl font-bold">Worn Honey Oak Cabinets</h4>
+                                <p class="text-xs text-stone-200 mt-1">Discolored Wood Grain</p>
+                            </div>
+                        </div>
+                        <!-- Slider Handle -->
+                        <div class="slider-handle" id="handle-2">
+                            <div class="w-8 h-8 rounded-full bg-white text-forest-800 flex items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg text-xs font-bold">
+                                <i class="fa-solid fa-code-compare"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-forest-900 text-lg">Kitchen Cabinet Refinishing</h4>
+                        <p class="text-sm text-slate-600 mt-1">Sanded, primed, and sprayed with high-durability cabinet enamel for a modern kitchen upgrade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Area Section -->
+    <section id="service-area" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-forest-600 bg-forest-50 px-3 py-1 rounded-full border border-forest-100">Local Coverage</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-forest-900">
+                        Serving Manheim & Surrounding Communities
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        Evergreen Painting, LLC is proud to provide top-quality residential painting services throughout Central Lancaster County. We are prompt, respectful of your home, and committed to excellent local service.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-forest-50 border border-forest-100 flex items-center gap-3 font-bold text-forest-900 text-sm">
+                            <i class="fa-solid fa-map-pin text-forest-600"></i> Manheim
+                        </div>
+                        <div class="p-4 rounded-xl bg-forest-50 border border-forest-100 flex items-center gap-3 font-bold text-forest-900 text-sm">
+                            <i class="fa-solid fa-map-pin text-forest-600"></i> Lancaster
+                        </div>
+                        <div class="p-4 rounded-xl bg-forest-50 border border-forest-100 flex items-center gap-3 font-bold text-forest-900 text-sm">
+                            <i class="fa-solid fa-map-pin text-forest-600"></i> Lititz
+                        </div>
+                        <div class="p-4 rounded-xl bg-forest-50 border border-forest-100 flex items-center gap-3 font-bold text-forest-900 text-sm">
+                            <i class="fa-solid fa-map-pin text-forest-600"></i> Elizabethtown
+                        </div>
+                        <div class="p-4 rounded-xl bg-forest-50 border border-forest-100 flex items-center gap-3 font-bold text-forest-900 text-sm">
+                            <i class="fa-solid fa-map-pin text-forest-600"></i> Ephrata
+                        </div>
+                        <div class="p-4 rounded-xl bg-forest-50 border border-forest-100 flex items-center gap-3 font-bold text-forest-900 text-sm">
+                            <i class="fa-solid fa-map-pin text-forest-600"></i> Mount Joy
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 bg-forest-800 text-white rounded-3xl p-8 sm:p-10 shadow-xl space-y-6 relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 text-forest-700/30 text-9xl font-black">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">Why Homeowners Choose Evergreen Painting</h3>
+                    <ul class="space-y-4 relative z-10 text-sm sm:text-base text-forest-100">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emeraldAccent text-lg mt-0.5"></i>
+                            <span><strong>Detailed Prep Work:</strong> Proper sanding, caulking, and priming to ensure paint adheres and lasts.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emeraldAccent text-lg mt-0.5"></i>
+                            <span><strong>Respectful Worksite:</strong> Furniture covered, drop cloths everywhere, and daily cleanup.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emeraldAccent text-lg mt-0.5"></i>
+                            <span><strong>Clear Estimates:</strong> Upfront pricing with no surprise charges or hidden fees.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Request Form -->
+    <section id="quote" class="py-20 bg-forest-50 border-t border-forest-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-forest-600 bg-white px-3 py-1 rounded-full border border-forest-200">Free Estimate</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-forest-900 mt-3">
+                    Request Your Free Estimate Today
+                </h2>
+                <p class="mt-3 text-slate-600">
+                    Fill out the form below and we will contact you promptly to discuss your project.
+                </p>
+            </div>
+
+            <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-md border border-forest-100">
+                <form id="quote-form" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-slate-700 mb-2">Full Name *</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-forest-600 focus:border-transparent transition-all" placeholder="John Smith">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-semibold text-slate-700 mb-2">Phone Number *</label>
+                            <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-forest-600 focus:border-transparent transition-all" placeholder="(717) 555-0123">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Email Address *</label>
+                            <input type="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-forest-600 focus:border-transparent transition-all" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label for="project-type" class="block text-sm font-semibold text-slate-700 mb-2">Project Type *</label>
+                            <select id="project-type" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-forest-600 focus:border-transparent transition-all bg-white">
+                                <option value="" disabled selected>Select project type...</option>
+                                <option value="Interior Painting">Interior Painting</option>
+                                <option value="Exterior Painting">Exterior Painting</option>
+                                <option value="Cabinet Refinishing">Cabinet Refinishing</option>
+                                <option value="Drywall Repair">Drywall Repair</option>
+                                <option value="Multiple Services">Multiple / Whole House</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="description" class="block text-sm font-semibold text-slate-700 mb-2">Project Description</label>
+                        <textarea id="description" rows="4" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-forest-600 focus:border-transparent transition-all" placeholder="Tell us about the rooms, surfaces, or details of your painting project..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 px-6 font-bold text-white bg-forest-800 hover:bg-forest-700 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-base">
+                        <span>Submit Quote Request</span>
+                        <i class="fa-solid fa-paper-plane text-sm"></i>
+                    </button>
+                </form>
+
+                <!-- Feedback Message -->
+                <div id="quote-feedback" class="hidden mt-6 p-4 rounded-xl text-sm font-semibold text-center bg-forest-100 text-forest-900 border border-forest-300">
+                    <i class="fa-solid fa-circle-check text-emerald-600 text-lg mr-2"></i>
+                    Thank you! Your quote request has been sent. We'll be in touch shortly.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Address Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-forest-600 bg-forest-50 px-3 py-1 rounded-full border border-forest-100">Get In Touch</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-forest-900">
+                        Contact Evergreen Painting, LLC
+                    </h2>
+                    <p class="text-slate-600">
+                        Ready for your fresh coat? Call or visit us today to discuss your next residential painting project.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-forest-100 text-forest-800 flex items-center justify-center font-bold text-lg shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-forest-900">Address</h4>
+                                <p class="text-slate-600 text-sm">563 Fruitville Pike, Manheim, PA 17545</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-forest-100 text-forest-800 flex items-center justify-center font-bold text-lg shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-forest-900">Phone</h4>
+                                <a href="tel:7175550199" class="text-forest-700 hover:underline text-sm font-semibold">(717) 555-0199</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-forest-100 text-forest-800 flex items-center justify-center font-bold text-lg shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-forest-900">Hours of Operation</h4>
+                                <p class="text-slate-600 text-sm">Monday – Friday: 7:00 AM – 5:00 PM</p>
+                                <p class="text-slate-600 text-sm">Saturday: By Appointment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Maps Card Placeholder -->
+                <div class="bg-forest-50 rounded-2xl p-6 border border-forest-100 flex flex-col justify-between">
+                    <div>
+                        <div class="h-64 bg-forest-200 rounded-xl flex flex-col items-center justify-center text-forest-800 p-6 text-center space-y-3">
+                            <i class="fa-solid fa-map-location-dot text-5xl text-forest-700"></i>
+                            <h4 class="font-bold text-lg">Location Map</h4>
+                            <p class="text-xs text-forest-900 font-medium">563 Fruitville Pike, Manheim, PA 17545</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-forest-200 text-center">
+                        <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-forest-800 hover:text-forest-600">
+                            <span>Get Directions on Google Maps</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto bg-forest-900 text-white py-12 border-t border-forest-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-8 border-b border-forest-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-forest-700 flex items-center justify-center text-emeraldAccent text-base font-bold">
+                        <i class="fa-solid fa-paint-roller"></i>
+                    </div>
+                    <span class="text-lg font-extrabold tracking-tight">Evergreen Painting, LLC</span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6 text-sm text-forest-200">
+                    <a href="#services" class="hover:text-white transition-colors">Services</a>
+                    <a href="#gallery" class="hover:text-white transition-colors">Before & After</a>
+                    <a href="#service-area" class="hover:text-white transition-colors">Service Area</a>
+                    <a href="#quote" class="hover:text-white transition-colors">Free Estimate</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="pt-8 text-center sm:flex sm:justify-between sm:text-left text-xs text-forest-300">
+                <p>&copy; <span id="year"></span> Evergreen Painting, LLC. All rights reserved. Manheim, PA.</p>
+                <p class="mt-2 sm:mt-0">Professional Residential Painting Services in Lancaster County.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Set dynamic copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Quote Form Handling
+        const quoteForm = document.getElementById('quote-form');
+        const quoteFeedback = document.getElementById('quote-feedback');
+
+        quoteForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            quoteFeedback.classList.remove('hidden');
+            quoteForm.reset();
+            setTimeout(() => {
+                quoteFeedback.classList.add('hidden');
+            }, 6000);
+        });
+
+        // Simple Before/After Slider Interaction
+        function setupSlider(containerId, beforeId, handleId) {
+            const container = document.getElementById(containerId);
+            const before = document.getElementById(beforeId);
+            const handle = document.getElementById(handleId);
+
+            if (!container || !before || !handle) return;
+
+            let isDragging = false;
+
+            function moveSlider(x) {
+                const rect = container.getBoundingClientRect();
+                let pos = (x - rect.left) / rect.width;
+                if (pos < 0) pos = 0;
+                if (pos > 1) pos = 1;
+                before.style.width = `${pos * 100}%`;
+                handle.style.left = `${pos * 100}%`;
+            }
+
+            container.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                moveSlider(e.clientX);
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                moveSlider(e.clientX);
+            });
+
+            // Touch events for mobile responsiveness
+            container.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                moveSlider(e.touches[0].clientX);
+            });
+
+            window.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+
+            window.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                moveSlider(e.touches[0].clientX);
+            });
+        }
+
+        setupSlider('slider-1', 'before-1', 'handle-1');
+        setupSlider('slider-2', 'before-2', 'handle-2');
+    </script>
+</body>
+</html>
